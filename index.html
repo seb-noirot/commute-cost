@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Office Commute Cost Calculator</title>
+</head>
+
+<body>
+<div class="container mt-5">
+    <h2 class="text-center">Office Commute Cost Calculator</h2>
+
+    <div class="row">
+        <div class="col-4">
+            <form id="calculator">
+                <div class="form-group">
+                    <label for="commuteCost">Commute Cost (one way):</label>
+                    <input type="number" class="form-control" id="commuteCost" placeholder="Enter commute cost"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="commuteTime">Commute Time (one way in minutes):</label>
+                    <input type="number" class="form-control" id="commuteTime" placeholder="Enter commute time"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hourlySalary">Hourly Salary:</label>
+                    <input type="number" class="form-control" id="hourlySalary" placeholder="Enter hourly salary"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="timesPerWeek">Times you commute per week (considering both ways):</label>
+                    <input type="number" class="form-control" id="timesPerWeek" placeholder="Enter times per week"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="weeksPerYear">Weeks you work per year:</label>
+                    <input type="number" class="form-control" id="weeksPerYear" placeholder="Enter weeks per year"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Currency:</label>
+                    <select class="form-control" id="currency">
+                        <option value="USD">$ (USD)</option>
+                        <option value="EUR">€ (EUR)</option>
+                        <option value="NOK">nok</option>
+                        <!-- Add other currencies as needed -->
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="calculate()">Calculate</button>
+            </form>
+
+        </div>
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center mt-4">Total Cost: <span id="result">0</span></h4>
+                </div>
+                <div class="card-body">
+                    <div id="details" class="text-center mt-2">
+                        <p>Commute Ticket Costs: <span id="ticketCost">0</span></p>
+                        <p>Time Lost (in hours): <span id="timeLostHours">0</span></p>
+                        <p>Time Lost Costs: <span id="timeLostCost">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <canvas id="commuteChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>
